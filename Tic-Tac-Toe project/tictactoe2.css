@@ -1,0 +1,141 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+.board{
+    background-color: #8f7251;
+    height: 80vh;
+    width: 205vh;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(3,auto);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.cell{
+    border: 3px solid bisque;
+    display: flex;
+    width: 100px;
+    height:  100px;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vh;
+    position: relative;
+    color: rgb(53, 42, 29);
+    cursor: pointer;
+}
+
+.cell:hover{
+    background-color: rgb(225, 191, 142);
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7){
+    border-left: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9){
+    border-bottom: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9){
+    border-right: none;
+}
+
+.cell.x,
+.cell.o{
+    cursor: not-allowed;
+}
+
+.cell.x::before,
+.cell.x::after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 90px;
+    background-color: rgb(59, 49, 36);
+}
+
+.cell.x::before{
+    transform: rotate(45deg);
+}
+
+.cell.x::after{
+    transform: rotate(-45deg);
+}
+
+.cell.o::before,
+.cell.o::after{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    
+}
+
+.cell.o::before{
+    width: 90px;
+    height: 90px;
+    background-color: rgb(59, 49, 36);
+}
+
+.cell.o::after{
+    width: 65px;
+    height: 65px;
+    background-color: #8f7251;
+}
+
+.winning-message{
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(253, 239, 218, 0.9);
+    
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    flex-direction: column;
+}
+
+.winning-message button{
+    font-size: 3rem;
+    color: bisque;
+    background-color: lightgray;
+    border: 2px solid lightgray;
+    cursor: pointer;
+
+}
+
+.winning-message button:hover{
+    color: lightgrey;
+    background-color: bisque;
+}
+
+.winning-message.show{
+    display: flex;
+}
+
+ .title{
+    color: rgb(59, 49, 36);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3vh;
+    font-size: 10vh;
+}
